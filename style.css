@@ -1,0 +1,167 @@
+:root{
+    --p-color: rgb(179, 179, 179);
+    --bg-color: rgb(4, 58, 27);
+    --h1-color: rgb(218, 218, 218);
+    --h2-color: rgb(135, 135, 135);
+    border: 0.4rem solid rgb(118, 27, 27);
+    border-radius: 2rem;
+    margin: 30px;
+}
+
+[data-theme=dark]{
+    --p-color: rgb(149, 149, 149);
+    --bg-color: black;
+    --h1-color: rgb(255, 255, 255);
+    --h2-color: white;
+    --h1-text-shadow:  0 0 5px rgba(255, 255, 255, 0.59),
+                     0 0 10px rgba(255, 255, 255, 0.473),
+                     0 0 20px rgba(255, 255, 255, 0.683),
+                     0 0 40px rgb(0, 80, 209),
+                     0 0 80px rgb(11, 0, 108),
+                     0 0 90px rgb(10, 0, 74),
+                     0 0 100px rgb(3, 0, 16),
+                     0 0 150px rgb(0, 0, 0);
+    --h2-text-shadow:  0 0 5px rgba(255, 255, 255, 0.59),
+                     0 0 10px rgba(255, 255, 255, 0.473),
+                     0 0 20px rgba(255, 255, 255, 0.683),
+                     0 0 40px rgb(0, 57, 213),
+                     0 0 80px rgb(3, 82, 200),
+                     0 0 90px rgb(10, 0, 74),
+                     0 0 100px rgb(24, 0, 130),
+                     0 0 150px rgb(0, 0, 0);
+    --h1-animation: flicker 1.5s infinite alternate;
+    border: 0.4rem solid;
+    border-radius: 2rem;
+    --border-color: red;
+    box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--border-color),
+            inset 0 0 2rem var(--border-color),
+            0 0 4rem var(--border-color),
+            inset 0 0 4rem var(--border-color);
+    margin: 30px;
+    --svg-glow : 0 0 5px rgba(255, 255, 255, 0.59),
+    0 0 10px rgba(255, 255, 255, 0.473),
+    0 0 20px rgba(255, 255, 255, 0.683)
+    0 0 40px rgb(0, 57, 213),
+    0 0 80px rgb(3, 82, 200),
+    0 0 90px rgb(10, 0, 74),
+    0 0 100px rgb(24, 0, 130),
+    0 0 150px rgb(0, 0, 0);
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px rgba(255, 255, 255, 0.888),
+        0 0 19px rgba(255, 255, 255, 0.756),
+        0 0 40px rgb(0, 79, 237),
+        0 0 80px rgb(0, 28, 104),
+        0 0 90px rgb(12, 0, 67),
+        0 0 100px rgb(1, 15, 86),
+        0 0 150px rgb(24, 0, 72);
+    }
+    20%, 24%, 55% {       
+      text-shadow: none;
+    }
+  }
+
+body{
+    padding: 100px;
+    margin: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    border: var(--border-style) var(--border-shadow);
+    transition: 0.9s;
+}
+
+.content-wrapper{
+    text-align: center;
+    width: 100%;
+    margin-top: 9%;
+}  
+
+h1 {
+    font-size: 70px;
+    margin: 0;
+    color: var(--h1-color);
+    font-family: 'Rufina', serif;
+    letter-spacing: 30px;
+    text-shadow: var(--h1-text-shadow);
+    animation: var(--h1-animation);
+    word-spacing: 40px;
+    text-align: center;
+}
+
+  
+h2{
+    font-size: 50px;
+    margin: 0;
+    color: var(--h2-color);
+    font-family: 'Rufina', serif;
+    letter-spacing: 20px;
+    text-shadow: var(--h2-text-shadow);
+}
+
+p{
+    font-size: 20px;
+    margin: 25px 0 30px 0;
+    color: var(--p-color);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    word-spacing: 3px;
+}
+
+.theme-switcher-wrapper{
+    align-items: center;
+    margin-top: 60px;
+}
+
+.theme-switch{
+  display : inline-block;
+  height: 80px;
+  position: relative;  
+  width: 230px;
+}
+.theme-switch input{
+    display: none;
+}
+
+.slider{
+    background-color: rgb(33, 33, 33);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.5s;
+}
+
+.slider:before{
+    background-color: rgb(203, 203, 203);
+    bottom: 4px;
+    content: "";
+    height: 72px;
+    left: 5px;
+    position: absolute;
+    transition: 0.7s;
+    width: 72px;
+}
+
+input:checked + .slider { 
+    background-color: rgb(77, 77, 77);
+}
+input:checked + .slider:before {
+    transform: translateX(148px);
+}
+
+.slider.round {
+    border-radius: 50px;
+}
+
+.slider.round:before {
+    border-radius: 60%;
+}
